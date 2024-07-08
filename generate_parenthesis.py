@@ -13,14 +13,14 @@ class Solution:
             if openN < n:
                 stack.append("(")
                 backtrack(openN + 1, closeN)
-                stack.pop()
+                stack.pop()  # This is because we again call our function again basically
+                # Recurse so then it will either append
             if closeN < openN:
                 stack.append(")")
                 backtrack(openN, closeN + 1)
                 stack.pop()  # This is because we again call our function again basically
-                # Recurse so then it will either appedn
+                # Recurse so then it will either append
 
         backtrack(0, 0)  # This line calls the backtrack function for the first time only
         # then it is recursively called in its if conditions
-        #  string found
         return result
